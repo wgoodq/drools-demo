@@ -1,0 +1,29 @@
+group 'cn.ok'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+jar {
+    into('lib') {
+        from configurations.runtime
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.drools/drools-core
+    compile group: 'org.drools', name: 'drools-core', version: '7.4.1.Final'
+    // https://mvnrepository.com/artifact/org.drools/drools-compiler
+    compile group: 'org.drools', name: 'drools-compiler', version: '7.4.1.Final'
+    // https://mvnrepository.com/artifact/org.drools/drools-decisiontables
+    compile group: 'org.drools', name: 'drools-decisiontables', version: '7.4.1.Final'
+    // https://mvnrepository.com/artifact/org.drools/drools-templates
+    compile group: 'org.drools', name: 'drools-templates', version: '7.4.1.Final'
+    // https://mvnrepository.com/artifact/org.kie/kie-api
+    compile group: 'org.kie', name: 'kie-api', version: '7.4.1.Final'
+}
