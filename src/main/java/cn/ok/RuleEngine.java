@@ -28,9 +28,14 @@ public class RuleEngine {
                 "global java.util.List list;" +
                 "rule \"rule1\" " +
                 "when " +
-                "msg : Message( status memberOf list)  " +
+                "msg : Message(status memberOf list && !(1==2 && !(2==3)) ) " +
+                "msg1: Message($bb: status memberOf list)" +
+                "msg2: Message($cc: msg)" +
                 "then " +
+                "System.out.println(\"123123123\"); " +
                 "System.out.println(msg); " +
+                "System.out.println($bb); " +
+                "System.out.println($cc); " +
                 "end\r\n";
 
         KieSession kSession = null;
